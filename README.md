@@ -82,16 +82,19 @@ The planned release will include:
 - training and evaluation scripts
 - configuration files and example assets for reproducing the paper setup
 
-If you need details before the code is public, contact the corresponding author at `muyao@sjtu.edu.cn`.
+If you need details before the code is public, contact the corresponding author at `wangwenhao@agibot.com`, `muyao@sjtu.edu.cn`.
 
-<!-- ## 📚 Citation
-If RoboClaw is useful for your research, please cite: -->
-<!-- 
+## 📚 Citation
+If RoboClaw is useful for your research, please cite: 
+
 ```bibtex
 @misc{li2026roboclaw,
   title={RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks},
-  author={Ruiying Li and Yunlang Zhou and YuYao Zhu and Kylin Chen and Jingyuan Wang and Sukai Wang and Kongtao Hu and Minhui Yu and Bowen Jiang and Zhan Su and Jiayao Ma and Xin He and Yongjian Shen and yangyang and Guanghui Ren and Maoqing Yao and Wenhao Wang and Yao Mu},
+  author={Ruiying Li and Yunlang Zhou and YuYao Zhu and Kylin Chen and Jingyuan Wang and Sukai Wang and Kongtao Hu and Minhui Yu and Bowen Jiang and Zhan Su and Jiayao Ma and Xin He and Yongjian Shen and Yangyang and Guanghui Ren and Maoqing Yao and Wenhao Wang and Yao Mu},
   year={2026},
-  note={Manuscript}
+  eprint={2603.11558},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/2603.11558}, 
 }
-``` -->
+```
