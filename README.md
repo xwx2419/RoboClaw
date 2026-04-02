@@ -19,7 +19,7 @@ Instead of treating those stages as separate systems, RoboClaw lets the agent re
 
 ![RoboClaw teaser](assets/teaser.jpg)
 
-> Current repository scope: this repo currently contains the paper PDF and project assets. The public codebase has been submitted and is **pending review** by **Agibot**, the company, before release.
+> 🎉 The public codebase has been released!
 
 ## ✨ Highlights
 - One agent loop across collection, training, and deployment
@@ -58,15 +58,51 @@ The single-skill evaluations cover four representative manipulation tasks:
 - lipstick insertion
 - tissue wipe
 
-## 📁 Repository Layout
-```text
-RoboClaw/
-   README.md
-   assets/
-      logo.png
-      paper.pdf
-      teaser.jpg
+## 🚀 Quick Start Guide
+
+First, clone the repository:
+
+```bash
+git clone https://github.com/RoboClaw-Robotics/RoboClaw.git ~/RoboClaw
+cd ~/RoboClaw
 ```
+
+Then, prepare the `.env` file in the project root:
+
+```bash
+cd ~/RoboClaw
+cp .env.example .env
+```
+
+Then fill in the tokens and credentials in `.env`:
+
+```dotenv
+FEISHU_APP_ID=cli_xxx
+FEISHU_APP_SECRET=xxx
+FEISHU_VERIFICATION_TOKEN=xxx
+FEISHU_EVENT_RECEIVER=long_connection
+OPENAI_API_KEY=xxx
+```
+
+Configuration details:
+
+- `FEISHU_APP_ID`: Feishu application App ID (optional)
+- `FEISHU_APP_SECRET`: Feishu application App Secret (optional)
+- `FEISHU_VERIFICATION_TOKEN`: Event verification token (optional)
+- `FEISHU_EVENT_RECEIVER=long_connection`: Enables long-connection mode (optional)
+- `OPENAI_API_KEY`: OpenAI API key (required)
+
+After updating `.env`, initialize the project:
+
+```bash
+cd ~/RoboClaw
+make init
+```
+
+### 🔧 Common Commands
+
+- Start the TUI: `make run_tui`
+- Start the GUI: `make run_gui`
 
 ## 📄 Paper
 - Title: *RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks*
@@ -74,15 +110,9 @@ RoboClaw/
 - PDF: [assets/paper.pdf](assets/paper.pdf)
 
 ## 🚧 Open-Source Release
-The public codebase has been submitted and is **pending review** by **Agibot**, the company, before release.
+The current open-source release is primarily validated on the **Agibot G01** platform.
 
-The planned release will include:
-- agent orchestration code
-- EAP-based data collection pipeline
-- training and evaluation scripts
-- configuration files and example assets for reproducing the paper setup
-
-If you need details before the code is public, contact the corresponding author at `wangwenhao@agibot.com`, `muyao@sjtu.edu.cn`.
+For complete usage (including VLA model deployment), the corresponding `.whl` package is available upon request via private message.
 
 ## 📚 Citation
 If RoboClaw is useful for your research, please cite: 

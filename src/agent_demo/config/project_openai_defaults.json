@@ -1,0 +1,8 @@
+{
+  "model": "gpt-5.4",
+  "base_url": "https://rust.cat/v1",
+  "wire_api": "responses",
+  "reasoning_effort": "low",
+  "model_context_window": 256000,
+  "model_auto_compact_token_limit": 128000
+}

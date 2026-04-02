@@ -1,0 +1,76 @@
+{
+  "ORMCPServices": {
+    "basic-memory": {
+      "connection_type": "STDIO",
+      "description": {
+        "simple_cn": "Basic Memory 是一个知识管理系统，它允许您根据与 AI 助手的对话构建持久的语义图谱, 并通过自然语言查询来检索相关信息",
+        "simple_en": "Basic Memory is a knowledge management system that allows you to build a persistent semantic graph based on the conversations with an AI assistant, and retrieve relevant information through natural language queries."
+      },
+      "need_activation": true,
+      "command": "uv",
+      "args": [
+        "--directory",
+        "src/mcp_server_demo/basic-memory/src",
+        "run",
+        "basic-memory",
+        "mcp"
+      ],
+      "env": {},
+      "url": ""
+    },
+    "tavily-search": {
+      "connection_type": "STDIO",
+      "description": {
+        "simple_cn": "该服务器使用 Tavily API 根据指定的查询执行搜索",
+        "simple_en": "This server uses the Tavily API to execute searches based on the specified query"
+      },
+      "need_activation": true,
+      "command": "uv",
+      "args": [
+        "--directory",
+        "src/mcp_server_demo/metasearch-mcp/src",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "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",
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "url": ""
+    },
+    "corobot_mcp_server": {
+      "connection_type": "STDIO",
+      "description": {
+        "simple_cn": "该服务可以通过CoRobot控制机器人执行策略任务，支持启动/停止任务、设置提示词、配置策略服务器等功能",
+        "simple_en": "This service can control robot policy tasks through CoRobot, supporting start/stop tasks, set prompts, configure policy servers, etc."
+      },
+      "need_activation": true,
+      "command": "uv",
+      "args": [
+        "--directory",
+        "src/mcp_server_demo/corobot_mcp_server/src",
+        "run",
+        "server.py"
+      ],
+      "env": {},
+      "url": ""
+    },
+    "data_analyst_mcp_server": {
+      "connection_type": "STDIO",
+      "description": {
+        "simple_cn": "数据分析服务，提供LeRobot数据集的t-SNE降维可视化分析功能，支持状态、动作和图像特征的分析",
+        "simple_en": "Data analysis service providing t-SNE dimensionality reduction visualization for LeRobot datasets, supporting analysis of state, action, and image features"
+      },
+      "need_activation": true,
+      "command": "uv",
+      "args": [
+        "--directory",
+        "src/mcp_server_demo/data_analyst_mcp_server/src",
+        "run",
+        "server.py"
+      ],
+      "env": {},
+      "url": ""
+    }
+  }
+}

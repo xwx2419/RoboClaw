@@ -1,0 +1,4 @@
+interface:
+  display_name: "EAP Data Collection"
+  short_description: "Collect self-resetting forward and reverse rollouts"
+  default_prompt: "Use $eap-data-collection to collect forward and reverse rollout pairs, write the trajectories into dataset D, and delegate each prompt-driven robot execution step to $monitored-subtask-execution."

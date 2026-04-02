@@ -1,0 +1,4 @@
+interface:
+  display_name: "Monitored Subtask Execution"
+  short_description: "Execute one prompt with monitoring"
+  default_prompt: "Use $monitored-subtask-execution to execute one prompt-driven subtask via corobot_mcp_server, poll status, and stop/reset on failure."

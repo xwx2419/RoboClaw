@@ -1,0 +1,4 @@
+interface:
+  display_name: "Long-Horizon Execution"
+  short_description: "Plan and execute multi-step robot tasks"
+  default_prompt: "Use $long-horizon-execution to decompose a long robot task into subtasks and execute each policy step via $monitored-subtask-execution."

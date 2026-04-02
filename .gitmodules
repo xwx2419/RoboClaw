@@ -1,0 +1,6 @@
+[submodule "src/mcp_server_demo/basic-memory"]
+	path = src/mcp_server_demo/basic-memory
+	url = https://github.com/basicmachines-co/basic-memory
+[submodule "src/mcp_server_demo/metasearch-mcp"]
+	path = src/mcp_server_demo/metasearch-mcp
+	url = https://github.com/YeonwooSung/metasearch-mcp.git
