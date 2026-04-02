@@ -4,14 +4,21 @@
   <a href="https://roboclaw-agibot.github.io/">
     <img src="https://img.shields.io/badge/Project-Website-green" alt="Project Website">
   </a>
-  <a href="assets/paper.pdf">
-    <img src="https://img.shields.io/badge/Paper-PDF-b31b1b" alt="Paper PDF">
+  <a href="https://arxiv.org/abs/2603.11558">
+    <img src="https://img.shields.io/badge/arXiv-2603.11558-b31b1b" alt="arXiv">
   </a>
-  <img src="https://img.shields.io/badge/Status-Paper%20Assets%20Only-orange" alt="Status: Paper assets only">
-  <img src="https://img.shields.io/badge/Open--Source-Before%20March%2031%2C%202026-blue" alt="Open-source release plan">
+  <img src="https://img.shields.io/badge/Status-Ready-green" alt="Status: Paper assets only">
+  <img src="https://img.shields.io/badge/Open--Source-Released-blue" alt="Open-source release plan">
 </p>
 
-**[Website](https://roboclaw-agibot.github.io/) | [Paper PDF](assets/paper.pdf)**
+<p align="center"><strong>Collaborating Institutions</strong></p>
+<p align="center">
+  <img src="./assets/Agi-logo.png" alt="AgiBot" height="104">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./assets/ScaleLab-logo.png" alt="ScaleLab" height="104">
+</p>
+
+**[Website](https://roboclaw-agibot.github.io/) | [arXiv](https://arxiv.org/abs/2603.11558)**
 
 RoboClaw is an agentic robotics framework for long-horizon manipulation. It uses a vision-language model as the high-level controller and keeps the same agent in the loop during data collection, policy learning, and deployment.
 
@@ -108,6 +115,7 @@ make init
 - Title: *RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks*
 - Website: [https://roboclaw-agibot.github.io/](https://roboclaw-agibot.github.io/)
 - PDF: [assets/paper.pdf](assets/paper.pdf)
+- arXiv: [arXiv](https://arxiv.org/abs/2603.11558)
 
 ## 🚧 Open-Source Release
 The current open-source release is primarily validated on the **Agibot G01** platform.
