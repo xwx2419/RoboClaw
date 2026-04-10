@@ -4,6 +4,7 @@ from agent_demo.types.agent_types import ChatAPIConfig, BaseAgentCard, TextParam
 from agent_demo.agent_layer.agent_core import ImgActAgent
 from agent_demo.agent_layer.agent_prompt import ImgActAgentPrompt
 from agent_demo.agent_layer.agent_core.img_act_agent.img_act_agent import ToolCallRecord
+from agent_demo.common.assistant_output import NO_RESULT_MESSAGE, resolve_final_response_text
 from agent_demo.common.response_formatter import format_response_text
 from agent_demo.common.root_logger import setup_root_logging
 from agent_demo.machine_layer.dataloader_corobot import DataLoaderCoRobot as DataLoaderA2D
@@ -506,7 +507,7 @@ class Session:
                     )
                     # if res is not None:
                     # asyncio.create_task(self.tts_inference(res.text))  # 用 create_task 推到后台执行
-                    return res.text if res else "No result returned."
+                    return res.text if res else NO_RESULT_MESSAGE
                 except asyncio.CancelledError:
                     logger.info("[Session] run_once cancelled by caller.")
                     raise
@@ -551,7 +552,7 @@ class Session:
                                 on_status=on_status,
                             )
                             logger.info("[Session] Retry of agent.run_once succeeded")
-                            return res.text if res else "No result returned."
+                            return res.text if res else NO_RESULT_MESSAGE
                         except Exception as retry_e:
                             logger.error(f"[Session] 重试后仍然失败: {type(retry_e).__name__}: {retry_e}")
                             logger.error("Full traceback:\n" + traceback.format_exc())
@@ -1910,7 +1911,7 @@ if __name__ == "__main__":
                     _, tool_flow_html, analysis_figure = _build_chat_outputs()
                     yield chat_history, tool_flow_html, analysis_figure
 
-                final_text = final_text or assistant_text or "No result returned."
+                final_text = resolve_final_response_text(final_text, assistant_text)
                 final_text = _maybe_override_organize_msg(session_inst, final_text)
                 final_text = _maybe_override_rollout_msg(session_inst, final_text)
                 formatted_msg = format_response_text(final_text)

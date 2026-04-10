@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from typing import Any, Awaitable, Callable, Iterable
 
 import httpx
+from agent_demo.common.assistant_output import resolve_final_response_text
 
 logger = logging.getLogger(__name__)
 _FEISHU_AT_PATTERN = re.compile(r"<at\b[^>]*>.*?</at>", flags=re.IGNORECASE | re.DOTALL)
@@ -581,7 +582,7 @@ class FeishuBotController:
             else:
                 final_text = await self._session_inst.run_once(agent_prompt)
 
-            final_text = final_text or assistant_text or "No result returned."
+            final_text = resolve_final_response_text(final_text, assistant_text)
             formatted = self._format_bot_msg(final_text)
 
             try:
