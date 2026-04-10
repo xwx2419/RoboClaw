@@ -49,3 +49,6 @@ include = ["*.py"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/mcp_client_demo/*.py" = ["ALL"] # 对UT代码质量不做管控
+
+[tool.uv.extra-build-dependencies]
+openai-whisper = ["setuptools<81"]
