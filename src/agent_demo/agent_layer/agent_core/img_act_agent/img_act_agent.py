@@ -7,6 +7,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Optional, Awaitable, Callable
 from datetime import datetime
+from agent_demo.common.assistant_output import extract_assistant_text_param
 from agent_demo.types.interaction_types import InteractionPackage
 from ..base_agent.base_agent import BaseAgent
 from agent_demo.types.agent_types import (
@@ -487,7 +488,7 @@ class ImgActAgent(BaseAgent):
             except Exception:
                 pass
             # #endregion
-            return res.first_choice.message.content  # type: ignore
+            return extract_assistant_text_param(res.first_choice.message)
         except Exception as e:
             # 发生异常时，确保状态回到 READY，避免状态卡在中间状态
             logger.error(f"[ImgActAgent] run_once 发生异常，重置状态为 READY: {type(e).__name__}: {e}")

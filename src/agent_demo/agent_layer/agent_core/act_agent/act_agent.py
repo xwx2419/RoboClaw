@@ -1,6 +1,7 @@
 import uuid
 import json
 import logging
+from agent_demo.common.assistant_output import extract_assistant_text_param
 from agent_demo.types.interaction_types import InteractionPackage
 from ..base_agent.base_agent import BaseAgent
 from agent_demo.types.agent_types import (
@@ -104,4 +105,4 @@ class ActAgent(BaseAgent):
             res = await self.response()
             logger.info(f"[😼 ]{res.first_choice.message}")
         await self.compress_memory(res)
-        return res.first_choice.message.content  # type: ignore
+        return extract_assistant_text_param(res.first_choice.message)

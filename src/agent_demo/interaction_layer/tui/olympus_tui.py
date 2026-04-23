@@ -28,6 +28,7 @@ from agent_demo.interaction_layer.auto_inference_prompt import AUTO_INFERENCE_PR
 from agent_demo.agent_layer.agent_components.agent_tools.local_skill_registry import LocalSkillRegistry
 from agent_demo.agent_layer.agent_core import ImgActAgent
 from agent_demo.agent_layer.agent_prompt import ImgActAgentPrompt
+from agent_demo.common.assistant_output import NO_RESULT_MESSAGE, resolve_final_response_text
 from agent_demo.common.response_formatter import format_response_text
 from agent_demo.common.root_logger import setup_root_logging
 from agent_demo.interaction_layer.feishu_long_connection import start_feishu_long_connection
@@ -389,7 +390,7 @@ class Session:
                         on_text_delta=on_text_delta,
                         on_status=on_status,
                     )
-                    return res.text if res else "No result returned."
+                    return res.text if res else NO_RESULT_MESSAGE
                 except Exception as exc:
                     error_str = str(exc)
                     if (
@@ -404,7 +405,7 @@ class Session:
                             on_text_delta=on_text_delta,
                             on_status=on_status,
                         )
-                        return retry_res.text if retry_res else "No result returned."
+                        return retry_res.text if retry_res else NO_RESULT_MESSAGE
                     logger.error("Error calling agent.run_once: %s", exc)
                     logger.error("Full traceback:\n%s", traceback.format_exc())
                     raise
@@ -1061,7 +1062,7 @@ class OlympusTUI:
             else:
                 final_text = await self.session.run_once(agent_message)
 
-            final_text = final_text or assistant_text or "No result returned."
+            final_text = resolve_final_response_text(final_text, assistant_text)
             final_text = _maybe_override_organize_msg(self.session, final_text)
             final_text = _maybe_override_rollout_msg(self.session, final_text)
             self._update_last_assistant_message(format_response_text(final_text))
